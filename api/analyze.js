@@ -1,4 +1,5 @@
 export default async function handler(req, res) {
+    // السماح بالاتصال من أي مصدر (CORS)
     res.setHeader('Access-Control-Allow-Origin', '*');
     res.setHeader('Access-Control-Allow-Methods', 'GET');
 
@@ -8,7 +9,8 @@ export default async function handler(req, res) {
         return res.status(400).json({ error: "Channel parameter is missing" });
     }
 
-    const YOUTUBE_API_KEY = "ضع_مفتاح_الـ_API_هنا";
+    // مفتاح الـ API الخاص بك
+    const YOUTUBE_API_KEY = "AIzaSyAq0XPaJAOJJI8mOprEFwb4M7BDU78upGc";
 
     try {
         const youtubeUrl = `https://www.googleapis.com/youtube/v3/search?part=snippet&q=${encodeURIComponent(channelInput)}&type=channel&maxResults=1&key=${YOUTUBE_API_KEY}`;
